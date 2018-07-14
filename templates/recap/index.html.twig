@@ -1,0 +1,31 @@
+{% extends './base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+
+<div class="container grey-text text-darken-3">
+    <h4>Tableau récapitulatif :</h4>
+
+    <table class="col col s12">
+        <thead>
+            <tr>
+                <th>NUMERO COMMANDE</th>
+                <th>NOM DU CLIENT</th>
+                <th>DATE COMMANDE</th>
+                <th>VILLE</th>
+            </tr>
+        </thead>
+        {% for shipping in shippings %}
+            <tbody>
+                <tr>
+                    <td>{{ shipping.id }}</td>
+                    <td>{{ shipping.prenom }} {{ shipping.nom }}</td>
+                    <td>{{ shipping.dateCommande.format("d/m/Y") }}</td>
+                    <td>{{ shipping.ville }}</td>
+                </tr>
+            </tbody>
+        {% endfor %}
+    </table>
+</div>
+{% endblock %}

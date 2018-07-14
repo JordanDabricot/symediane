@@ -1,0 +1,78 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello!{% endblock %}
+
+{% block body %}
+
+<div class="container grey-text text-darken-3">
+    <div class="row">
+        <h4>Adresse de livraison : </h4>
+    </div>
+    <div class="row">
+        <div class="col s6 offset-s3">
+            <table>
+                <div class="row">
+                    <div class="input-field">
+                        <input type="text" id="autocomplete" placeholder="Tapez votre adresse de livraison">
+                    </div>
+                </div>
+                <form method="post">
+                    <tr class="border-form">
+                        <td class="adresse-form">
+                            <label for="numero">numéro </label>
+                        </td>
+                        <td class="input-field adresse-form">
+                            <input name="numero" type="number" id="street_number">
+                        </td>
+                    </tr>
+                    <tr class="border-form">
+                        <td class="adresse-form">
+                            <label for="adresse">Adresse * </label>
+                        </td>
+                        <td class="input-field adresse-form">
+                            <input name="adresse" type="text" id="route">
+                        </td>
+                    </tr>
+                    <tr class="border-form">
+                        <td class="adresse-form">
+                            <label for="code Postal">Code Postal * </label>
+                        </td>
+                        <td class="input-field adresse-form">
+                            <input name="codePostal" type="text" id="postal_code">
+                        </td>
+                    </tr>
+                    <tr class="border-form">
+                        <td class="adresse-form">
+                            <label for="ville">Ville * </label>
+                        </td>
+                        <td class="input-field adresse-form">
+                            <input name="ville" type="text" id="locality">
+                        </td>
+                    </tr>
+                    <tr class="border-form">
+                        <td class="adresse-form">
+                            <label for="pays">Pays * </label>
+                        </td>
+                        <td class="input-field adresse-form">
+                            <input name="pays" type="text" id="country">
+                        </td>
+                    </tr>
+                    <tr class="border-form">
+                        <div id="map"></div>
+                    </tr>
+                    <tr class="border-form">
+                        <td></td>
+                        <td>
+                            <input class=" col s12 pink lighten-2 btn" name="submit" type="submit" value="ENREGISTRER">
+                        </td>
+                    </tr>
+                </form>
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock %}
+{% block javascripts %}
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBoYpVrCrz6f_RePzCygvBghQOTT93R9PY&libraries=places&callback=initAutocomplete" async defer></script>
+    <script src="{{ asset('js/addressAutoComplete.js') }}"></script>
+{% endblock %}
