@@ -46,3 +46,8 @@ input {
 .border-form {
     border-bottom:0;
 }
+
+/* google autocomplete */
+.pac-item {
+    border-color: #f06292;
+}
