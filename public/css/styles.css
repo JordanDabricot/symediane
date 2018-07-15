@@ -51,3 +51,24 @@ input {
 .pac-item {
     border-color: #f06292;
 }
+
+#map {
+  height: 79vh;
+  width: 103vh;
+}
+
+.collapsible-header {
+  color: #f06292;
+}
+
+.collapsible-header > i {
+  margin-left: 80%;
+}
+
+.collapsible-body > a {
+  color: #f06292;
+}
+
+.nav-bar-arrow {
+  font-size: 35px;
+}

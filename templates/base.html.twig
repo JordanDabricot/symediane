@@ -26,12 +26,14 @@
                             <a href="http://www.symediane.com/" class="right"><img src="{{ asset('pictures/lien-symediane.png') }}" alt="lien"></a>
                         </div>
                     </div>
-                    <ul class="side-nav" id="mobile-demo">
-                        <li><a href="/recap">Historique de commande</a></li>
-                        <li><a href="badges.html">Components</a></li>
-                        <li><a href="collapsible.html">Javascript</a></li>
-                        <li><a href="mobile.html">Mobile</a></li>
-                    </ul>
+                    <div class="side-nav" id="mobile-demo">
+                        <ul class="collapsible" data-collapsible="accordion">
+                          <li>
+                            <div class="collapsible-header">First<i class="material-icons nav-bar-arrow"></i></div>
+                            <div class="collapsible-body"><a href="/recap">Historique de commande</a></div>
+                          </li>
+                        </ul>
+                    </div>
                 </div>
             </nav>
         </div>
@@ -43,6 +45,14 @@
         <script>
             $(document).ready(function(){
                 $(".button-collapses").sideNav();
+                $(".collapsible").collapsible({
+                  onOpen: function(el) {
+                    $(".nav-bar-arrow").text('arrow_drop_up');
+                  },
+                  onClose: function(el) {
+                    $(".nav-bar-arrow").text('arrow_drop_down');
+                  }
+                });
             });
         </script>
         {% block javascripts %}

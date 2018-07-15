@@ -22,6 +22,7 @@ function initAutocomplete() {
 function fillInAddress() {
     // Get the place details from the autocomplete object.
     var place = autocomplete.getPlace();
+    var position = {lat: place.geometry.location.lat(), lng: place.geometry.location.lng()};
 
     for (var component in componentForm) {
         document.getElementById(component).value = '';
@@ -37,15 +38,15 @@ function fillInAddress() {
             document.getElementById(addressType).value = val;
         }
     }
+
+    initMap(position);
 }
 
 // Initialize and add the map
-function initMap() {
-    // The location of Uluru
-    var uluru = {lat: -25.344, lng: 131.036};
+function initMap(location) {
     // The map, centered at Uluru
     var map = new google.maps.Map(
-        document.getElementById('map'), {zoom: 4, center: uluru});
+        document.getElementById('map'), {zoom: 18, center: location});
     // The marker, positioned at Uluru
-    var marker = new google.maps.Marker({position: uluru, map: map});
+    var marker = new google.maps.Marker({position: location, map: map});
 }
